@@ -1,6 +1,7 @@
 package rest
 
 import (
+	encodeS "golang-api/internal/service"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -17,4 +18,10 @@ func TestCreateLink(t *testing.T) {
 		t.Errorf("Expected status %d, got %d", http.StatusUnauthorized, recording.Code)
 	}
 
+}
+
+func TestEncodedURL(t *testing.T) {
+	encoded := encodeS.EncodingURL("https://google.com", 12)
+	t.Log(encoded)
+	t.Error()
 }
